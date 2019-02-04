@@ -33,7 +33,7 @@ function love.load()
   engine4Sound = love.audio.newSource('sfx/engine4.wav', 'static')
   crashSound = love.audio.newSource('sfx/crash.wav', 'static')
 
-  -- Create the playable car
+  -- Create the game objects
   puffs = {}
   createCar()
 end
@@ -103,7 +103,7 @@ function love.update(dt)
   local isInBarrier = r > 0 -- red means barriers
   local isInRoughTerrain = b > 0 -- blue means rough terrain
 
-  -- If the car is off the track, it slows down
+  -- If the car runs off the track, it slows down
   if isInRoughTerrain then
     car.speed = car.speed * 0.95
   end
@@ -120,7 +120,7 @@ function love.update(dt)
   car.bounceVelocityX = car.bounceVelocityX * 0.90
   car.bounceVelocityY = car.bounceVelocityY * 0.90
 
-  -- If things get too crazy, reset the car
+  -- If the car ever gets out of bound, reset the car
   if car.x < 0 or car.y < 0 or car.x > GAME_WIDTH or car.y > GAME_HEIGHT then
     createCar()
   end
@@ -169,6 +169,7 @@ function createCar()
   }
 end
 
+-- Creates a puff of smoke
 function createPuff(x, y)
   table.insert(puffs, {
     x = x,
