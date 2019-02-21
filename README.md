@@ -1,2 +1,2 @@
 # lil-racer
-A LÖVELY little racing game.
+A lil racing game with an itsy lil racing car wow.
