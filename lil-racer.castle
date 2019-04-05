@@ -2,6 +2,6 @@
 main: main.lua
 name: lil racer
 username: bridgs
-primaryColor: C0C0C0
+primaryColor: AAA092
 coverImage: cover-image.png
 description: A lil racing game with an itsy lil racing car wow.
