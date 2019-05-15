@@ -1,9 +1,6 @@
--- Render constants
+-- Game variables
 local GAME_WIDTH = 192
 local GAME_HEIGHT = 192
-local RENDER_SCALE = 3
-
--- Game variables
 local car
 local puffs
 local raceTrackData
@@ -133,13 +130,8 @@ end
 
 -- Renders the game
 function love.draw()
-  -- Scale and crop the screen
-  love.graphics.setScissor(0, 0, RENDER_SCALE * GAME_WIDTH, RENDER_SCALE * GAME_HEIGHT)
-  love.graphics.scale(RENDER_SCALE, RENDER_SCALE)
-  love.graphics.clear(0, 0, 0)
-  love.graphics.setColor(1, 1, 1)
-
   -- Draw the race track
+  love.graphics.setColor(1, 1, 1)
   love.graphics.draw(raceTrackImage, 0, 0)
 
   -- Draw the car
